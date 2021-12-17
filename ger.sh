@@ -1,9 +1,10 @@
 #!/bin/bash
 
-usr=$(ps -U $USER)
-t=$(top -bn1 > arq.txt)
+t=$(ps aux > arq.txt)
 
-zenity --question --text="Deseja exibir o gerenciador de processos?" 
+zenity --question --text="Deseja exibir o gerenciador de processos?" \
+	--ok-label="Sim"
+	--cancel-label="Não"
 if [ $? == 0 ]; then
       zenity --list \
 	    --title="Gerenciamento de Processos" \
